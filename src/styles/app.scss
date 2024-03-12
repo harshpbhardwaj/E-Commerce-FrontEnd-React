@@ -4,16 +4,44 @@
   font-weight: 400;
 }
 
+$main_color: #fff;
+$main_color_fade: #f2f2f2;
+$sec_color: #000;
+$sec_color_fade: #4d4d4d;
+$theme_color: #008868;
+$light_color: #ffffff;
+
+
+// $main_color: #000;
+// $main_color_fade: #1d1d1d;
+// $sec_color: #fff;
+// $sec_color_fade: #d2d2d2;
+// $light_color: $main_color_fade;
+
+
+
+
+
+$color1: $main_color;
+$color2: $sec_color_fade;
+// $color2: #e2e2e2;
+$color3: $theme_color;
+$color4: $sec_color;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  user-select: none;
+  background-color: $main_color_fade;
+  color: $color4;
+}
 a {
   text-decoration: none;
   color: black;
 }
+
 
 .red {
   color: red;
@@ -27,11 +55,74 @@ a {
 
 @import "admin-styles/mixin";
 
+@import "home.scss";
+
 @import "admin-styles/dashboard";
 @import "admin-styles/products";
 @import "admin-styles/chart";
 @import "admin-styles/dashboardapp";
 @import "admin-styles/mediaquery";
+
+
+
+.header {
+  @include flex(row, flex-end, stretch, 1.2rem);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: $color1;
+  box-shadow: 0px 0px 3px $color2;
+  a {
+    color: $color2;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: $color3;
+    }
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: $color2;
+    &:hover {
+      color: $color3;
+    }
+  }
+
+  dialog {
+    border: 1px solid #ccc;
+    background: $color1;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    position: absolute;
+    left: calc(100% - 200px);
+    top: 77%;
+    > div {
+      @include flex(column, flex-start, center, 00.25rem);
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .admin-container {
   @include grid(1fr 4fr, 2rem);
