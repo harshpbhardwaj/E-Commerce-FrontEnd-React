@@ -1,0 +1,37 @@
+.login {
+    @include flex;
+    > form {
+        margin-top: 5rem;
+        background-color: $main_color;
+        border-radius: 12px;
+        max-width: 450px;
+        width: 100%;
+        @include flex(column, center, stretch, 2rem);
+        padding: 2rem;
+        padding-bottom: 4rem;
+
+        > h2 {
+            @include heading(2px);
+            font-weight: 700;
+            margin: 2rem;
+            text-align: center;
+        }
+
+        > input,
+        > select {
+            border: 1px solid $sec_color_fade;
+            padding: 0.75rem;
+            outline: none;
+            font-size: 0.75rem;
+            border-radius: 50px;
+        }
+
+        > button {
+            @include btnBase(0.75rem, $sec_color_fade, $main_color);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    }
+}

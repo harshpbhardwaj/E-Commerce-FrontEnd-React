@@ -2,10 +2,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Loader from './components/loader';
 import Header from './components/header';
+import Footer from './components/footer';
+import NotFound from './pages/not-found';
 
 const Home = lazy(() => import("./pages/home"));
 const Search = lazy(() => import("./pages/search"));
 const Cart = lazy(() => import("./pages/cart"));
+const Login = lazy(() => import("./pages/login"));
+
+const Shipping = lazy(() => import('./pages/shipping'));
+const Orders = lazy(() => import('./pages/orders'));
+
 
 // Importing Dashboard files
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
@@ -37,6 +44,13 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/login' element={<Login />} />
+
+          {/* Logged in User Routes */}
+          <Route>
+            <Route path='/shipping' element={<Shipping />} />
+            <Route path='/orders' element={<Orders />} />
+          </Route>
 
           {/* Admin Routes */}
           <Route
@@ -69,8 +83,9 @@ function App() {
           {/* Admin Routes Finished */}
 
 
-
+          <Route path='*' element={<NotFound />} />
         </Routes>
+        <Footer />
       </Suspense>
   </Router>;
 };

@@ -3,12 +3,48 @@
   line-height: 1.5;
   font-weight: 400;
 }
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css');
+
+// $cc0: #f5270c;
+// $cc1: #fbec5f;
+// $cc2: #3D3501;
+
+
+$vv2: #004752; // Green Shade
+// $vv2: #473882; // Purple Shade
+// $vv2: #1E592F; // Green
+// $vv2: #035663; // Teal
+// $vv2: #0040B0; // Blue
+// $vv2: #2C13AD; // Idigo
+// $vv2: #7800A4; // Pink
+// $vv2: #9B015D; // Raspberry
+// $vv2: #840606; // Red
+// $vv2: #8D2A00; // Mango
+// $vv2: #223548	; // Grey
+
+// $vv2: seturate($vv2, 100%);
+
+$vv0: #FFFFFF;
+// $vv1: #002c33;
+// $vv3: #7DC3CC;
+// $vv4: #eaf5f5;
+
+$vv5: $vv2;
+$vv3: saturate(mix($vv5, white, 45%), 35%);
+$vv3: mix($vv3, #64b4b4, 50%);
+$vv1: mix($vv5, black, 55%);
+
+$vv4: saturate(mix($vv5, white, 15%), 5%);
+$vv4: mix($vv4, #d7dbdb, 50%);
 
 $main_color: #fff;
-$main_color_fade: #f2f2f2;
-$sec_color: #000;
-$sec_color_fade: #4d4d4d;
-$theme_color: #008868;
+$main_color_fade: $vv4;
+$sec_color: $vv1;
+$sec_color_fade: $vv2;
+// $theme_color: #008868;
+$theme_light_color: $vv4;
+$theme_color: $vv3;
+$theme_dark_color: $vv2;
 $light_color: #ffffff;
 
 
@@ -35,11 +71,21 @@ $color4: $sec_color;
 body {
   user-select: none;
   background-color: $main_color_fade;
-  color: $color4;
+  color: $sec_color_fade;
 }
 a {
   text-decoration: none;
-  color: black;
+  color: $sec_color_fade !important;
+
+  &:hover {
+    color: $theme_color !important;
+    text-decoration: none;
+  }
+}
+.active {
+  > a {
+    color: $sec_color !important;
+  }
 }
 
 
@@ -53,9 +99,14 @@ a {
   color: rgb(0, 195, 0);
 }
 
+
 @import "admin-styles/mixin";
 
 @import "home.scss";
+@import "cart.scss";
+@import "shipping.scss";
+@import "login.scss";
+@import "search.scss";
 
 @import "admin-styles/dashboard";
 @import "admin-styles/products";
@@ -64,6 +115,102 @@ a {
 @import "admin-styles/mediaquery";
 
 
+.hide {
+  display: none;
+}
+.gap-div {
+  height: 50px;
+}
+.radius-50 {
+  border-radius: 50px;
+}
+.btn-theme{
+  border-color: $sec_color_fade;
+  color: $sec_color_fade;
+  background-color: $main_color;
+  &:hover {
+    color: $main_color !important;
+    background-color: $theme_color;
+  }
+}
+.navbar-brand{
+  margin: auto;
+  color: $main_color !important;
+  // border: 2px solid $sec_color_fade;
+  background-color: rgba(mix(saturate(mix($theme_dark_color, #fff, 80%),50%), #1a4d4d, 50%), $alpha: 1);
+  border-radius: 50px 50px 50px 50px;
+  padding: 0px 0 3px 7px;
+  font-weight: 700;
+  font-size: 0.9rem;
+
+  &:hover{
+    color: $main_color_fade !important;
+  }
+
+  > span{
+    color: $theme_dark_color !important;
+    // border: 2px solid $sec_color_fade;
+    background-color: rgba($theme_light_color, $alpha: 1);
+    border-radius: 50px 50px 50px 50px;
+    padding: 4px 7px 7px 7px;
+    font-size: 1.1rem;
+  }
+}
+h1, h2, h3, h4 {
+    // @include heading(1px);
+    margin-top: 2rem;
+    color: $sec_color_fade;
+}
+
+footer {
+  // position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-top: 25vh;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  background-color: $main_color;
+}
+.section-contianer {
+  max-width: 1367px;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  > h1 {
+    @include heading;
+    margin: 1rem 0;
+    text-align: left;
+  }
+  > div {
+    padding: 3rem;
+    text-align: center;
+    @include container;
+    > h4 {
+      @include heading;
+    }
+    > table {
+      th {
+        padding: 0.5rem;
+      }
+      td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+.table .thead-dark th{
+  background-color: $sec_color_fade;
+}
+.table tbody tr {
+  th{
+    color: rgba($sec_color_fade, $alpha: 0.61);
+  }
+  td{
+    color: $sec_color_fade;
+  }
+}
 
 .header {
   @include flex(row, flex-end, stretch, 1.2rem);

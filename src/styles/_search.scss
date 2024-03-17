@@ -1,0 +1,56 @@
+.product-search{
+    padding: 2rem;
+    @include flex(row, flex-start, stretch, 2rem);
+    min-height: calc(100vh - 6.5vh);
+
+    >aside {
+        min-width: 20rem;
+        @include container;
+        padding: 2rem;
+        @include flex(column, flex-start, stretch, 0.5rem);
+
+        > h2 {
+            @include heading;
+        }
+
+        >div {
+            >input,
+            >select {
+                @include inputStyle(100%, 1rem, $main_color, 2px solid $main_color_fade);
+                border-radius: 12px;
+                &:hover {
+                    background-color: rgba($main_color_fade, $alpha: 0.4);
+                }
+            }
+        }
+    }
+
+    >main {
+        width: 100%;
+        padding: 0 2rem;
+
+        >h1 {
+            @include heading;
+        }
+
+        >input {
+            @include inputStyle(50%);
+            border-radius: 50px;
+        }
+
+        .search-product-list{
+            @include flex(row, flex-start, flex-start);
+            flex-wrap: wrap;
+            height: calc(100% - 10rem);
+            overflow-y: auto;
+        }
+        > article {
+            @include flex;
+            > button {
+                @include flex;
+                @include btnBase(0.25rem 0.75rem, $sec_color_fade, $main_color);
+                border-radius: 10px;
+            }
+        }
+    }
+}

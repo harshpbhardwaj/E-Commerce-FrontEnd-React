@@ -1,0 +1,56 @@
+.shipping {
+    @include flex;
+    .back-btn {
+        @include square(2.5rem);
+        background-color: $sec_color_fade;
+        color: $main_color;
+        @include flex;
+        position: fixed;
+        top: 4rem;
+        left: 2rem;
+        border-radius: 100%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        @include baseShadow;
+
+        svg {
+            transition: all 0.3s;
+        }
+        &:hover {
+            translate: -0.25rem;
+        }
+    }
+    > form {
+        margin-top: 10px;
+        background-color: $main_color;
+        border-radius: 12px;
+        max-width: 450px;
+        width: 100%;
+        @include flex(column, center, stretch, 2rem);
+        padding: 2rem;
+
+        > h1 {
+            @include heading(2px);
+            margin: 2rem;
+            text-align: center;
+        }
+
+        > input,
+        > select {
+            border: 1px solid $sec_color_fade;
+            padding: 1rem;
+            outline: none;
+            font-size: 1.05rem;
+            border-radius: 5px;
+        }
+
+        > button {
+            @include btnBase(1rem, $sec_color_fade, $main_color);
+            border-radius: 5px;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    }
+}

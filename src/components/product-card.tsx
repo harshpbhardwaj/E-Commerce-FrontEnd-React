@@ -25,8 +25,8 @@ const Product_card = (
         <span>₹{price}</span>
         {/* <div className="product_div" onClick={() => handler()}>
         </div> */}
-        <div className="product_footer">
-            Add to cart
+        <div className="product_footer d-flex justify-content-around mt-3">
+            <span>Add to cart</span>
             <button><FaPlus /></button>
         </div>
     </div>

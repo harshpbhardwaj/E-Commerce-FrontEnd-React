@@ -46,3 +46,28 @@
 @mixin baseShadow() {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
 }
+
+@mixin container() {
+  background-color: $main_color;
+  border-radius: 12px;
+}
+
+
+@mixin btnBase($p: 0.5rem 1rem, $bg: $sec_color_fade, $cl: $main_color) {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: $p;
+  background-color: $bg;
+  color: $cl !important;
+  &:hover {
+    background-color: rgba($theme_color, $alpha: 1);
+  }
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+  &:active {
+      box-shadow: inset 2px 2px 5px rgba($sec_color, $alpha: 1);
+  }
+}
